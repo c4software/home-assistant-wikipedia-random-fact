@@ -1,0 +1,8 @@
+{
+    "name": "Wikipedia Random Fact",
+    "render_readme": true,
+    "domain": "wikipedia_fact",
+    "documentation": "https://github.com/c4software/home-assistant-wikipedia-random-fact",
+    "issue_tracker": "https://github.com/c4software/home-assistant-wikipedia-random-fact/issues",
+    "homeassistant": "2023.8.0"
+}
