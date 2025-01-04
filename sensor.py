@@ -23,18 +23,15 @@ class WikipediaFactSensor(Entity):
 
     @property
     def name(self):
-        """Nom de l'entité."""
         return self._name
 
     @property
     def state(self):
-        """État actuel de l'entité."""
         # Limite l'état à 255 caractères maximum
         return self._state[:255] if self._state else None
 
     @property
     def extra_state_attributes(self):
-        """Attributs supplémentaires."""
         return self._attributes
 
     async def async_update(self):
@@ -84,5 +81,5 @@ class WikipediaFactSensor(Entity):
                     } if link else {"texte_complet": f"En {year}: {text}", "année": year}
 
         except Exception as e:
-            self._state = f"Erreur : {str(e)[:100]}"  # Limite les messages d'erreur
+            self._state = f"Erreur : {str(e)[:100]}"
 
