@@ -14,6 +14,8 @@ Cette intégration permet d'afficher un fait historique aléatoire chaque jour, 
 
 ### Installation
 
+[![Ouvrez votre instance Home Assistant et accédez à un dépôt dans le Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=c4software&repository=home-assistant-wikipedia-random-fact&category=integration)
+
 #### Prérequis
 
 Avant de commencer, vous devez avoir Home Assistant installé et fonctionnel.
