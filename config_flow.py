@@ -1,13 +1,32 @@
 from homeassistant import config_entries
+import voluptuous as vol
 from . import DOMAIN
 
 class WikipediaFactConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    """Gestionnaire de flux de configuration pour Wikipedia Fact."""
+    """Gère la configuration de l'intégration Wikipedia Random Fact."""
+
+    VERSION = 1
 
     async def async_step_user(self, user_input=None):
-        """Premier écran du flux de configuration."""
+        errors = {}
+
         if user_input is not None:
-            return self.async_create_entry(title="Wikipedia Random Fact", data={})
+            # Valide et enregistre la configuration
+            return self.async_create_entry(
+                title="Wikipedia Random Fact",
+                data={"language": user_input["language"]}
+            )
 
-        return self.async_show_form(step_id="user")
-
+        # Affiche le formulaire de configuration
+        return self.async_show_form(
+            step_id="user",
+            data_schema=vol.Schema({
+                vol.Required("language", default="fr"): vol.In({
+                    "fr": "Français",
+                    "en": "English",
+                    "es": "Español",
+                    "de": "Deutsch"
+                })
+            }),
+            errors=errors
+        )

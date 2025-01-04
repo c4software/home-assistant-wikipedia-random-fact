@@ -2,24 +2,27 @@ import aiohttp
 import random
 from datetime import date
 from homeassistant.helpers.entity import Entity
+from homeassistant.config_entries import ConfigEntry
+from homeassistant.core import HomeAssistant
 
 DOMAIN = "wikipedia_fact"
 
-async def async_setup_entry(hass, config_entry, async_add_entities):
+async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry, async_add_entities):
     """Configurer le capteur via une entrée de configuration."""
-    sensor = WikipediaFactSensor("Wikipedia Fact")
-    async_add_entities([sensor], update_before_add=True)  # Force la mise à jour avant l'ajout
-
+    # Récupère la langue depuis la configuration
+    language = config_entry.data.get("language", "fr")
+    sensor = WikipediaFactSensor("Wikipedia Fact", language)
+    async_add_entities([sensor], update_before_add=True)
 
 class WikipediaFactSensor(Entity):
     """Capteur pour récupérer un fait aléatoire lié au jour courant depuis Wikipedia."""
 
-    def __init__(self, name):
-        """Initialise le capteur."""
+    def __init__(self, name, language):
         self._name = name
         self._state = None
         self._attributes = {}
-        self._last_update = None  # Stocke la date de la dernière mise à jour
+        self._last_update = None
+        self._language = language
 
     @property
     def name(self):
@@ -27,15 +30,17 @@ class WikipediaFactSensor(Entity):
 
     @property
     def state(self):
-        # Limite l'état à 255 caractères maximum
-        return self._state[:255] if self._state else None
+        return self._state
 
     @property
     def extra_state_attributes(self):
         return self._attributes
 
+    @property
+    def icon(self):
+        return "mdi:book-open-page-variant"
+
     async def async_update(self):
-        """Met à jour l'état avec un fait aléatoire si nécessaire."""
         today = date.today()
 
         # Ne mettre à jour que si la date a changé
@@ -45,7 +50,7 @@ class WikipediaFactSensor(Entity):
         self._last_update = today
         month = today.strftime("%m")
         day = today.strftime("%d")
-        url = f"https://fr.wikipedia.org/api/rest_v1/feed/onthisday/events/{month}/{day}"
+        url = f"https://{self._language}.wikipedia.org/api/rest_v1/feed/onthisday/events/{month}/{day}"
 
         try:
             async with aiohttp.ClientSession() as session:
@@ -81,5 +86,4 @@ class WikipediaFactSensor(Entity):
                     } if link else {"texte_complet": f"En {year}: {text}", "année": year}
 
         except Exception as e:
-            self._state = f"Erreur : {str(e)[:100]}"
-
+            self._state = f"Erreur : {str(e)}"
