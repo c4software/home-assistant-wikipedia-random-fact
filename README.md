@@ -1,4 +1,4 @@
-# Wikipedia Random Fact
+# Wikipedia Random Fact Of The Day
 
 Cette intégration permet d'afficher un fait historique aléatoire chaque jour, en fonction de la date actuelle, en utilisant l'API [Wikipedia en français](https://fr.wikipedia.org/).
 
@@ -19,7 +19,7 @@ Avant de commencer, vous devez avoir Home Assistant installé et fonctionnel.
 
 ### Ajouter l'intégration
 
-1. Téléchargez ou clonez ce repository dans le répertoire `custom_components` de votre installation Home Assistant.
+1. Téléchargez ou clonez ce repository dans le répertoire `custom_components/wikipedia-rfotd` de votre installation Home Assistant.
 2. Redémarrez Home Assistant.
 3. Dans l'interface web de Home Assistant, allez dans **Paramètres > Intégrations** et cliquez sur **Ajouter une intégration**.
 4. Recherchez **Wikipedia Random Fact** et suivez les instructions à l'écran pour terminer l'ajout.
