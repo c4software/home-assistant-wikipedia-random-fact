@@ -1,8 +1,12 @@
 {
-    "name": "Wikipedia Random Fact",
-    "render_readme": true,
     "domain": "wikipedia_fact",
+    "name": "Wikipedia Random Fact",
+    "codeowners": ["@c4software"],
+    "config_flow": true,
+    "dependencies": [],
     "documentation": "https://github.com/c4software/home-assistant-wikipedia-random-fact",
+    "iot_class": "cloud_polling",
     "issue_tracker": "https://github.com/c4software/home-assistant-wikipedia-random-fact/issues",
-    "homeassistant": "2023.8.0"
+    "requirements": [],
+    "version": "1.0.0"
 }
