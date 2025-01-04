@@ -1,0 +1,11 @@
+{
+  "domain": "wikipedia_fact",
+  "name": "Wikipedia Random Fact",
+  "version": "1.0",
+  "documentation": "https://github.com/your-repo/wikipedia_fact",
+  "requirements": [],
+  "codeowners": ["@c4software"],
+  "iot_class": "cloud_polling",
+  "config_flow": true
+}
+
