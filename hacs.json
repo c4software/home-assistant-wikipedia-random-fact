@@ -1,7 +1,6 @@
 {
     "domain": "wikipedia_fact",
     "name": "Wikipedia Random Fact",
-    "codeowners": ["@c4software"],
     "config_flow": true,
     "dependencies": [],
     "documentation": "https://github.com/c4software/home-assistant-wikipedia-random-fact",
