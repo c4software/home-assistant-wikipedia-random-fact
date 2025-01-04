@@ -1,3 +1,9 @@
 {
     "name": "Wikipedia Random Fact",
+    "country": [
+      "FR", "EN", "ES", "DE
+    ],
+    "homeassistant": "2023.1.2",
+    "hacs": "1.29.1",
+    "render_readme": true
 }
