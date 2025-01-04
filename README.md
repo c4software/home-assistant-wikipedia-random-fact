@@ -55,7 +55,6 @@ L'entité expose les attributs suivants :
 
 - Si vous ne voyez pas de fait historique, vérifiez les journaux de Home Assistant pour des erreurs dans la récupération des données depuis Wikipedia
 - Assurez-vous que votre instance Home Assistant est connectée à Internet pour accéder à l'API Wikipedia
-- En cas d'erreur avec une langue spécifique, essayez de changer la langue dans la configuration de l'intégration
 
 ---
 
@@ -114,4 +113,3 @@ The entity exposes the following attributes:
 
 - If you do not see a historical fact, check the Home Assistant logs for errors retrieving data from Wikipedia
 - Make sure your Home Assistant instance is connected to the internet to access the Wikipedia API
-- If you experience errors with a specific language, try changing the language in the integration configuration
